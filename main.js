@@ -9,11 +9,11 @@ function deactivateAllTabs() {
     button.setAttribute('data-state', 'inactive');
     button.setAttribute('tabindex', '-1');
   });
-  
+
   tabPanels.forEach(panel => {
     // Add fade out animation
     panel.style.animation = 'fadeOut 0.2s ease-out';
-    
+
     setTimeout(() => {
       panel.setAttribute('data-state', 'inactive');
       panel.setAttribute('hidden', '');
@@ -26,15 +26,15 @@ function deactivateAllTabs() {
 function activateTab(button) {
   const panelId = button.getAttribute('aria-controls');
   const panel = document.getElementById(panelId);
-  
+
   // Deactivate all tabs first
   deactivateAllTabs();
-  
+
   // Activate the selected tab
   button.setAttribute('aria-selected', 'true');
   button.setAttribute('data-state', 'active');
   button.setAttribute('tabindex', '0');
-  
+
   // Show the associated panel with animation
   if (panel) {
     setTimeout(() => {
@@ -50,13 +50,13 @@ tabButtons.forEach(button => {
   button.addEventListener('click', () => {
     activateTab(button);
   });
-  
+
   // Add keyboard navigation
   button.addEventListener('keydown', (e) => {
     const currentIndex = Array.from(tabButtons).indexOf(button);
     let nextIndex;
-    
-    switch(e.key) {
+
+    switch (e.key) {
       case 'ArrowRight':
         e.preventDefault();
         nextIndex = (currentIndex + 1) % tabButtons.length;
@@ -87,3 +87,11 @@ tabButtons.forEach(button => {
 if (tabButtons.length > 0) {
   activateTab(tabButtons[0]);
 }
+
+// Function to download resume
+document.getElementById("downloadResumeBtn").addEventListener("click", function () {
+    const fileUrl = 'assets/Aniruddha_Deb_Angular_Developer.pdf'; // your resume path
+  window.open(fileUrl, '_blank');
+});
+
+
