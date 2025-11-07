@@ -90,7 +90,7 @@ if (tabButtons.length > 0) {
 
 // Function to download resume
 document.getElementById("downloadResumeBtn").addEventListener("click", function () {
-    const fileUrl = 'assets/Aniruddha_Deb_Angular_Developer.pdf'; // your resume path
+    const fileUrl = 'https://aniruddhadeb.me/assets/Aniruddha_Deb_Angular_Developer.pdf';
   window.open(fileUrl, '_blank');
 });
 
